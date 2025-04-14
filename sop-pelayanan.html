@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Desa Kalikayen, desa dengan keindahan alam dan budaya yang kaya."
+    />
+    <meta
+      name="keywords"
+      content="Desa Kalikayen, wisata, budaya, alam, berita desa"
+    />
+    <meta name="author" content="Tim Desa Kalikayen" />
+    <title>Desa Kalikayen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <style>
+      .news-card img {
+        transition: transform 0.3s ease;
+      }
+      .news-card:hover img {
+        transform: scale(1.05);
+      }
+      #calendar {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .fc .fc-view-harness {
+        max-height: 300px;
+      }
+      nav ul li a.active {
+        color: #a7a092; /* Warna kuning */
+        font-weight: bold; /* Tebalkan teks */
+        border-bottom: 2px solid #a7a092; /* Garis bawah */
+      }
+      .demografi-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .demografi-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      main {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 pt-16">
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-stone-300 text-stone-800 py-4 shadow-md z-50"
+    >
+      <div class="container mx-auto flex justify-between items-center px-6">
+        <img
+          src="img\logo-kalikayen.png"
+          alt="Logo Desa Kalikayen"
+          class="h-20 w-20"
+        />
+        <h1 class="text-3xl font-bold">Desa Kalikayen</h1>
+        <ul class="hidden md:flex space-x-7">
+          <li><a href="index.html" class="hover:text-stone-400">Beranda</a></li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-stone-400">Profil Desa</a>
+            <ul
+              class="absolute hidden group-hover:block bg-stone-300 text-stone-800 py-2 space-y-2 w-48 shadow-md rounded"
+            >
+              <li>
+                <a
+                  href="struktur-organisasi.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Struktur Organisasi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="sejarah.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Sejarah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="wilayah-desa.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Wilayah Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="visi-misi.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Visi Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="demografi.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Demografi</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-stone-400">Informasi Desa</a>
+            <ul
+              class="absolute hidden group-hover:block bg-stone-300 text-stone-800 py-2 space-y-2 w-48 shadow-md rounded"
+            >
+              <li>
+                <a href="berita.html" class="block px-4 py-2 hover:bg-stone-400"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a href="agenda.html" class="block px-4 py-2 hover:bg-stone-400"
+                  >Agenda</a
+                >
+              </li>
+              <li>
+                <a href="galeri.html" class="block px-4 py-2 hover:bg-stone-400"
+                  >Galeri</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-stone-400">Pelayanan</a>
+            <ul
+              class="absolute hidden group-hover:block bg-stone-300 text-stone-800 py-2 space-y-2 w-48 shadow-md rounded"
+            >
+              <li>
+                <a
+                  href="sop-pelayanan.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >SOP Pelayanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="jenis-pelayanan.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Jenis Pelayanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan-pengaduan.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Layanan Pengaduan</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="kontak.html" class="hover:text-stone-400">Kontak</a></li>
+          <li><a href="login.html" class="hover:text-stone-400">Login</a></li>
+        </ul>
+
+        <button class="md:hidden text-2xl" id="menu-button">☰</button>
+      </div>
+
+      <div
+        class="md:hidden hidden bg-stone-300 text-stone-800 py-2"
+        id="mobile-menu"
+      >
+        <ul class="flex flex-col space-y-3 px-6">
+          <li><a href="index.html" class="hover:text-stone-400">Beranda</a></li>
+
+          <li>
+            <button
+              class="w-full text-left hover:text-stone-400"
+              id="mobile-profil"
+            >
+              Profil Desa ▼
+            </button>
+            <ul class="hidden pl-4 space-y-2" id="mobile-profil-menu">
+              <li>
+                <a href="struktur-organisasi.html" class="hover:text-stone-400"
+                  >Struktur Organisasi</a
+                >
+              </li>
+              <li>
+                <a href="sejarah.html" class="hover:text-stone-400">Sejarah</a>
+              </li>
+              <li>
+                <a href="wilayah-desa.html" class="hover:text-stone-400"
+                  >Wilayah Desa</a
+                >
+              </li>
+              <li>
+                <a href="visi-misi.html" class="hover:text-stone-400"
+                  >Visi Misi</a
+                >
+              </li>
+              <li>
+                <a href="demografi.html" class="hover:text-stone-400"
+                  >Demografi</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <button
+              class="w-full text-left hover:text-stone-400"
+              id="mobile-informasi"
+            >
+              Informasi Desa ▼
+            </button>
+            <ul class="hidden pl-4 space-y-2" id="mobile-informasi-menu">
+              <li>
+                <a href="berita.html" class="hover:text-stone-400">Berita</a>
+              </li>
+              <li>
+                <a href="agenda.html" class="hover:text-stone-400">Agenda</a>
+              </li>
+              <li>
+                <a href="galeri.html" class="hover:text-stone-400">Galeri</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <button
+              class="w-full text-left hover:text-stone-400"
+              id="mobile-pelayanan"
+            >
+              Pelayanan ▼
+            </button>
+            <ul class="hidden pl-4 space-y-2" id="mobile-pelayanan-menu">
+              <li>
+                <a href="sop-pelayanan.html" class="hover:text-stone-400"
+                  >SOP Pelayanan</a
+                >
+              </li>
+              <li>
+                <a href="jenis-pelayanan.html" class="hover:text-stone-400"
+                  >Jenis Pelayanan</a
+                >
+              </li>
+              <li>
+                <a href="layanan-pengaduan.html" class="hover:text-stone-400"
+                  >Layanan Pengaduan</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="kontak.html" class="hover:text-stone-400">Kontak</a></li>
+          <li><a href="login.html" class="hover:text-stone-400">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- SOP Pelayanan -->
+    <section class="py-[75px] px-10">
+      <h2
+        class="text-2xl tracking-wider sm:text-3xl font-bold text-stone-700 mb-8 text-center relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-stone-400"
+      >
+        SOP PELAYANAN
+      </h2>
+      <div class="container mx-auto px-6">
+        <div class="text-stone-600 text-lg">
+          <p class="mb-6">
+            Desa Kalikayen berkomitmen untuk memberikan pelayanan prima kepada
+            seluruh masyarakat. Standard Operational Procedure (SOP) ini dibuat
+            untuk memastikan pelayanan yang efektif, efisien, dan transparan
+            sesuai dengan peraturan yang berlaku.
+          </p>
+
+          <h3 class="text-2xl font-semibold mb-4">
+            Diagram Alur Pelayanan Masyarakat
+          </h3>
+          <img
+            src="img\alur-pelayanan.jpg"
+            alt="Diagram Alur"
+            class="w-full h-auto rounded-lg shadow-lg mb-6"
+          />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+              <h3 class="text-xl font-semibold mb-4">Jadwal Operasional</h3>
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="bg-stone-200">
+                    <th class="border border-stone-300 p-2 text-left">Hari</th>
+                    <th class="border border-stone-300 p-2 text-left">
+                      Jam Kerja
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border border-stone-300 p-2">Senin - Kamis</td>
+                    <td class="border border-stone-300 p-2">
+                      08.00 - 15.00 WIB
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="border border-stone-300 p-2">Jumat</td>
+                    <td class="border border-stone-300 p-2">
+                      08.00 - 11.30 WIB
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="border border-stone-300 p-2">Sabtu - Minggu</td>
+                    <td class="border border-stone-300 p-2">Libur</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div
+              class="bg-white rounded-lg shadow-md p-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h3 class="text-xl font-semibold mb-4">
+                Waktu Penyelesaian Layanan
+              </h3>
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="bg-stone-200">
+                    <th class="border border-stone-300 p-2 text-left">
+                      Jenis Layanan
+                    </th>
+                    <th class="border border-stone-300 p-2 text-left">
+                      Estimasi Waktu
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border border-stone-300 p-2">Surat Pengantar</td>
+                    <td class="border border-stone-300 p-2">1 hari kerja</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-stone-300 p-2">
+                      Surat Keterangan Domisili
+                    </td>
+                    <td class="border border-stone-300 p-2">1 hari kerja</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-stone-300 p-2">
+                      Surat Keterangan Tidak Mampu
+                    </td>
+                    <td class="border border-stone-300 p-2">1-2 hari kerja</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-stone-300 p-2">
+                      Pengurusan KTP/KK
+                    </td>
+                    <td class="border border-stone-300 p-2">3-5 hari kerja</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-stone-300 p-2">
+                      Izin Usaha Mikro
+                    </td>
+                    <td class="border border-stone-300 p-2">3-7 hari kerja</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mb-10" data-aos="fade-up">
+            <h3 class="text-2xl font-semibold mb-4">Prosedur Umum Pelayanan</h3>
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <ol class="list-decimal pl-6 space-y-3">
+                <li>
+                  Warga datang ke kantor desa dengan membawa persyaratan yang
+                  dibutuhkan.
+                </li>
+                <li>
+                  Petugas melakukan verifikasi kelengkapan berkas persyaratan.
+                </li>
+                <li>Warga mengisi formulir permohonan sesuai kebutuhan.</li>
+                <li>Petugas melakukan pencatatan di buku register.</li>
+                <li>
+                  Permohonan diproses oleh aparatur desa sesuai dengan jenis
+                  layanan.
+                </li>
+                <li>
+                  Kepala desa atau pejabat yang berwenang melakukan
+                  penandatanganan dokumen.
+                </li>
+                <li>
+                  Warga dapat mengambil dokumen yang sudah selesai sesuai dengan
+                  waktu yang ditentukan.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all"
+              data-aos="fade-up"
+            >
+              <h3 class="text-xl font-semibold mb-3">Persyaratan Umum</h3>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>Fotokopi KTP yang masih berlaku</li>
+                <li>Fotokopi Kartu Keluarga</li>
+                <li>Surat pengantar dari RT/RW</li>
+                <li>Pas foto sesuai kebutuhan</li>
+                <li>Materai (untuk dokumen tertentu)</li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h3 class="text-xl font-semibold mb-3">Prinsip Pelayanan</h3>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>Kesederhanaan prosedur</li>
+                <li>Kejelasan informasi</li>
+                <li>Kepastian waktu</li>
+                <li>Akurasi</li>
+                <li>Kenyamanan</li>
+                <li>Keamanan</li>
+                <li>Transparansi</li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h3 class="text-xl font-semibold mb-3">Biaya Pelayanan</h3>
+              <p class="text-green-600 font-semibold mb-2">GRATIS</p>
+              <p>
+                Semua pelayanan administratif di Desa Kalikayen tidak dipungut
+                biaya apapun kecuali yang telah ditentukan oleh peraturan
+                perundang-undangan.
+              </p>
+              <p class="mt-3 text-sm italic">
+                Laporkan jika ada pungutan di luar ketentuan.
+              </p>
+            </div>
+          </div>
+
+          <div class="mb-10" data-aos="fade-up">
+            <h3 class="text-2xl font-semibold mb-4">
+              Standar Perilaku Petugas Pelayanan
+            </h3>
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Petugas Wajib:</h4>
+                  <ul class="list-disc pl-6 space-y-1">
+                    <li>Bersikap ramah dan sopan</li>
+                    <li>Berpenampilan rapi dan profesional</li>
+                    <li>Memberikan informasi yang jelas</li>
+                    <li>Menjaga kerahasiaan dokumen</li>
+                    <li>Mengutamakan kepentingan masyarakat</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Petugas Dilarang:</h4>
+                  <ul class="list-disc pl-6 space-y-1">
+                    <li>Meminta imbalan dalam bentuk apapun</li>
+                    <li>Bersikap diskriminatif</li>
+                    <li>Mempersulit prosedur pelayanan</li>
+                    <li>Menolak pelayanan tanpa alasan yang jelas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-10" data-aos="fade-up">
+            <p class="italic">
+              "Pelayanan yang baik adalah hak setiap warga. Kami siap melayani
+              dengan sepenuh hati."
+            </p>
+            <p class="font-semibold mt-2">- Kepala Desa Kalikayen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-300 text-stone-800 py-8">
+      <div class="container mx-auto px-4 md:px-6">
+        <!-- Bagian Utama Footer -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+        >
+          <!-- Alamat -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Alamat Desa</h5>
+            <p class="mb-1">Jl. Desa Kalikayen No. 10</p>
+            <p class="mb-1">Kecamatan Ungaran</p>
+            <p class="mb-1">Kabupaten Semarang</p>
+            <p class="mb-1">Jawa Tengah 50511</p>
+          </div>
+
+          <!-- Kontak -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Kontak</h5>
+            <p class="mb-2">📞 (024) 1234-5678</p>
+            <p class="mb-2">📱 0822-5678-9012</p>
+            <p class="mb-2">📧 info@kalikayen.desa.id</p>
+          </div>
+
+          <!-- Jam Kerja -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Jam Kerja</h5>
+            <p class="mb-1">Senin - Kamis: 08.00 - 15.00</p>
+            <p class="mb-1">Jumat: 08.00 - 11.30</p>
+            <p class="mb-1">Sabtu - Minggu: Tutup</p>
+          </div>
+
+          <!-- Tautan Cepat -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Tautan Cepat</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="berita.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a
+                  href="agenda.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Agenda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="galeri.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Galeri</a
+                >
+              </li>
+              <li>
+                <a
+                  href="kontak.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="mt-8 border-t border-stone-400 pt-6">
+          <div class="flex justify-center space-x-8">
+            <a
+              href="#"
+              class="hover:text-stone-600 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="hover:text-stone-600 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="hover:text-stone-600 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.331.001.369-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.614z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hak Cipta -->
+        <div class="mt-6 text-center text-sm">
+          <p class="mb-1">
+            © 2024 Desa Kalikayen. Seluruh hak cipta dilindungi.
+          </p>
+          <p>Dikembangkan oleh Tim IT Desa Kalikayen</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      AOS.init();
+
+      // Ambil semua link di navigasi
+      const navLinks = document.querySelectorAll("nav ul li a");
+
+      // Loop melalui setiap link
+      navLinks.forEach((link) => {
+        // Cek apakah href link sama dengan URL halaman saat ini
+        if (link.href === window.location.href) {
+          link.classList.add("active"); // Tambahkan class active
+        }
+      });
+
+      document
+        .getElementById("menu-button")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("mobile-profil")
+        .addEventListener("click", function () {
+          document
+            .getElementById("mobile-profil-menu")
+            .classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("mobile-informasi")
+        .addEventListener("click", function () {
+          document
+            .getElementById("mobile-informasi-menu")
+            .classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("mobile-pelayanan")
+        .addEventListener("click", function () {
+          document
+            .getElementById("mobile-pelayanan-menu")
+            .classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

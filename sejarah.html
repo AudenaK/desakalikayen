@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Desa Kalikayen, desa dengan keindahan alam dan budaya yang kaya."
+    />
+    <meta
+      name="keywords"
+      content="Desa Kalikayen, wisata, budaya, alam, berita desa"
+    />
+    <meta name="author" content="Tim Desa Kalikayen" />
+    <title>Desa Kalikayen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <style>
+      .news-card img {
+        transition: transform 0.3s ease;
+      }
+      .news-card:hover img {
+        transform: scale(1.05);
+      }
+      #calendar {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .fc .fc-view-harness {
+        max-height: 300px;
+      }
+      nav ul li a.active {
+        color: #a7a092; /* Warna kuning */
+        font-weight: bold; /* Tebalkan teks */
+        border-bottom: 2px solid #a7a092; /* Garis bawah */
+      }
+      .demografi-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .demografi-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      main {
+        flex: 1;
+      }
+      .history-card {
+        max-height: 400px; /* Atur tinggi maksimum sesuai kebutuhan */
+        overflow-y: auto; /* Aktifkan scroll jika konten melebihi tinggi maksimum */
+        padding: 1rem;
+        background-color: #f3f4f6; /* Warna latar belakang */
+        border-radius: 0.5rem; /* Sudut melengkung */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan */
+      }
+
+      .history-card h3 {
+        font-size: 1.5rem; /* Ukuran font judul */
+        font-weight: 600; /* Ketebalan font judul */
+        margin-bottom: 1rem; /* Jarak bawah judul */
+      }
+
+      .history-card p {
+        font-size: 1rem; /* Ukuran font paragraf */
+        line-height: 1.6; /* Jarak antar baris */
+        color: #4b5563; /* Warna teks */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 pt-16">
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-stone-300 text-stone-800 py-4 shadow-md z-50"
+    >
+      <div class="container mx-auto flex justify-between items-center px-6">
+        <img
+          src="img\logo-kalikayen.png"
+          alt="Logo Desa Kalikayen"
+          class="h-20 w-20"
+        />
+        <h1 class="text-3xl font-bold">Desa Kalikayen</h1>
+        <ul class="hidden md:flex space-x-7">
+          <li><a href="index.html" class="hover:text-stone-400">Beranda</a></li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-stone-400">Profil Desa</a>
+            <ul
+              class="absolute hidden group-hover:block bg-stone-300 text-stone-800 py-2 space-y-2 w-48 shadow-md rounded"
+            >
+              <li>
+                <a
+                  href="struktur-organisasi.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Struktur Organisasi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="sejarah.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Sejarah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="wilayah-desa.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Wilayah Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="visi-misi.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Visi Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="demografi.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Demografi</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-stone-400">Informasi Desa</a>
+            <ul
+              class="absolute hidden group-hover:block bg-stone-300 text-stone-800 py-2 space-y-2 w-48 shadow-md rounded"
+            >
+              <li>
+                <a href="berita.html" class="block px-4 py-2 hover:bg-stone-400"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a href="agenda.html" class="block px-4 py-2 hover:bg-stone-400"
+                  >Agenda</a
+                >
+              </li>
+              <li>
+                <a href="galeri.html" class="block px-4 py-2 hover:bg-stone-400"
+                  >Galeri</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-stone-400">Pelayanan</a>
+            <ul
+              class="absolute hidden group-hover:block bg-stone-300 text-stone-800 py-2 space-y-2 w-48 shadow-md rounded"
+            >
+              <li>
+                <a
+                  href="sop-pelayanan.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >SOP Pelayanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="jenis-pelayanan.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Jenis Pelayanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan-pengaduan.html"
+                  class="block px-4 py-2 hover:bg-stone-400"
+                  >Layanan Pengaduan</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="kontak.html" class="hover:text-stone-400">Kontak</a></li>
+          <li><a href="login.html" class="hover:text-stone-400">Login</a></li>
+        </ul>
+
+        <button class="md:hidden text-2xl" id="menu-button">☰</button>
+      </div>
+
+      <div
+        class="md:hidden hidden bg-stone-300 text-stone-800 py-2"
+        id="mobile-menu"
+      >
+        <ul class="flex flex-col space-y-3 px-6">
+          <li><a href="index.html" class="hover:text-stone-400">Beranda</a></li>
+
+          <li>
+            <button
+              class="w-full text-left hover:text-stone-400"
+              id="mobile-profil"
+            >
+              Profil Desa ▼
+            </button>
+            <ul class="hidden pl-4 space-y-2" id="mobile-profil-menu">
+              <li>
+                <a href="struktur-organisasi.html" class="hover:text-stone-400"
+                  >Struktur Organisasi</a
+                >
+              </li>
+              <li>
+                <a href="sejarah.html" class="hover:text-stone-400">Sejarah</a>
+              </li>
+              <li>
+                <a href="wilayah-desa.html" class="hover:text-stone-400"
+                  >Wilayah Desa</a
+                >
+              </li>
+              <li>
+                <a href="visi-misi.html" class="hover:text-stone-400"
+                  >Visi Misi</a
+                >
+              </li>
+              <li>
+                <a href="demografi.html" class="hover:text-stone-400"
+                  >Demografi</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <button
+              class="w-full text-left hover:text-stone-400"
+              id="mobile-informasi"
+            >
+              Informasi Desa ▼
+            </button>
+            <ul class="hidden pl-4 space-y-2" id="mobile-informasi-menu">
+              <li>
+                <a href="berita.html" class="hover:text-stone-400">Berita</a>
+              </li>
+              <li>
+                <a href="agenda.html" class="hover:text-stone-400">Agenda</a>
+              </li>
+              <li>
+                <a href="galeri.html" class="hover:text-stone-400">Galeri</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <button
+              class="w-full text-left hover:text-stone-400"
+              id="mobile-pelayanan"
+            >
+              Pelayanan ▼
+            </button>
+            <ul class="hidden pl-4 space-y-2" id="mobile-pelayanan-menu">
+              <li>
+                <a href="sop-pelayanan.html" class="hover:text-stone-400"
+                  >SOP Pelayanan</a
+                >
+              </li>
+              <li>
+                <a href="jenis-pelayanan.html" class="hover:text-stone-400"
+                  >Jenis Pelayanan</a
+                >
+              </li>
+              <li>
+                <a href="layanan-pengaduan.html" class="hover:text-stone-400"
+                  >Layanan Pengaduan</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="kontak.html" class="hover:text-stone-400">Kontak</a></li>
+          <li><a href="login.html" class="hover:text-stone-400">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sejarah -->
+    <section class="py-[75px] px-10 bg-white">
+      <h2
+        class="text-2xl tracking-wider sm:text-3xl font-bold text-stone-700 mb-8 text-center relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-stone-400"
+      >
+        SEJARAH DESA KALIKAYEN
+      </h2>
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="history-card" data-aos="fade-right">
+            <h3 class="text-center text-2xl font-semibold mb-4">
+              Sejarah Asal Usul Nama Desa Kalikayen
+            </h3>
+            <p class="text-justify">
+              Sejarah asal – usul Desa Kalikayen ini tidak lepas dari nama
+              seorang tokoh yang berasal dari Kadipaten Ponorogo yang bernama
+              IMAM DAIM. Beliau putra dari Bhatoro Kathong (Adipati Ponorogo I)
+              hasil dari pernikahannya dengan Durgandini (anak seorang Warok
+              Hindu di Ponorogo).
+            </p>
+            <br />
+            <p class="text-justify">
+              Pada waktu perjalanan ke Kerajaan Demak, Imam Daim beserta 3
+              (tiga) pengawalnya yaitu Kyai Sentono, Kyai Thosari dan Kyai
+              Sentul melewati sebuah Desa. Ketika sampai di sebuah bukit Imam
+              Daim bersama ketiga pengawal tersebut beristirahat,saat memandang
+              ke arah utara ternyata Imam Daim melihat/menemukan sebuah
+              perkampungan dimana perkampungan tersebut dikelilingi oleh sungai
+              dan bukit. Sebelum melanjutkan perjalanannya Imam Daim menancapkan
+              pusakanya yang bernama Kyai Kayun,dan secara serta merta bukit
+              tersebut gugruk dan puncak bukit tersebut ternyata terlempar ke
+              arah utara di sebelah timur perkampungan tersebut, tepatnya di
+              tengah-tengah persawahan. Maka Imam Daim memberi nama kampung itu
+              dengan nama Kalikayun,yang akhirnya pada tahun 1875 disebut Desa
+              Kalikayen, sesuai yang terdaftar dalam wilayah Pemerintahan Kab.
+              Semarang. Akhirnya Imam Daim bersama Kyai Sentul singgah sementara
+              di kampung tersebut. Kemudian Imam Daim melanjutkan perjalanan ke
+              Kerajaan Demak, sedang Kyai Sentul menikah dengan gadis desa
+              tersebut yang bernama Senah dan menetap untuk selamanya.
+            </p>
+          </div>
+          <div class="history-card" data-aos="fade-left">
+            <h3 class="text-center text-2xl font-semibold mb-4">
+              Sejarah Pemerintahan Desa Kalikayen
+            </h3>
+            <p class="text-justify">
+              Desa Kalikayen diakui atau tercatat dalam pemerintahan Kab.
+              Semarang pada tahun 1875 M yang pada waktu itu dipimpin oleh
+              <strong>Wiroguno</strong>. Pada tahun 1901 Wiroguno wafat. Maka
+              pada tahun 1901 diadakan musyawarah Desa yang menunjuk
+              <strong>Singo Amijoyo (Thokrak)</strong> sebagai Kepala Desa,
+              melanjutkan kepemimpinan Mertoguno. Beliau (Singo Amijoyo)
+              menjabat sampai tahun 1938 M karena meninggal dunia. Kemudian
+              tongkat kepemimpinan Pemerintahan Desa Kalikayen diserahkan kepada
+              <strong>Rusman bin Singo Amijoyo</strong> sampai tahun 1942 M.
+              Pada tahun 1942 diadakan pemilihan kepala desa yang dimenangkan
+              oleh <strong>Sarpin (Gonteng)</strong>. Kepala Desa Sarpin
+              menjabat sampai tahun 1958 M karena meninggal dunia. Kemudian
+              dilanjutkan oleh anaknya yang bernama
+              <strong>Rasidin bin Sarpin</strong> sampai tahun 1960.
+            </p>
+            <br />
+            <p class="text-justify">
+              Pada tahun 1960 diadakan pemilihan Kepala Desa, dan yang terpilih
+              yaitu <strong>Rasidin bin Sapin</strong>. Karena pada tahun 1963 M
+              Kades Rasidin bin Sarpin meninggal dunia, maka pada tahun 1964 M
+              diadakan MUSDES yang pada waktu itu disebut BAMDES yang
+              mengagendakan pemilihan Kepala Desa. Sehingga pada tahun 1964 M
+              diadakanlah pemilihan Kepala Desa dan yang terpilih yaitu
+              <strong>Sarmin bin Jamin</strong>. Beliau menjabat selama 1 tahun
+              karena pada tahun 1965 beliau tersangkut G30SPKI yang
+              mengakibatkan kehilangan haknya menjadi Kepala Desa karena
+              dipidana.
+            </p>
+            <br />
+            <p class="text-justify">
+              Pada akhir tahun 1965 M diadakan BAMDES yang menghasilkan bahwa
+              Pemerintahan Desa Kalikayen dipimpin oleh Pejabat Sementara (YMT).
+              Dan yang dipilih menjadi YMT yaitu
+              <strong>Sarmin bin Saidi</strong> yang berasal dari Desa Mluweh.
+              Beliau menjabat YMT sampai tahun 1972. Pada tahun 1972 diadakan
+              Pemilihan Kepala Desa dan yang terpilih adalah Sarmin bin Saidi
+              mantan YMT. Beliau menjabat sampai tahun 1987.
+            </p>
+            <br />
+            <p class="text-justify">
+              Kemudian pada tahun 1988 diadakan PILKADES dan yang terpilih
+              menjadi Kades yaitu
+              <strong>Sudardji bin Zainuri atau bin Nyamin</strong> yang berasal
+              dari Dusun Lingkongsari. Sudardji menjabat selama 10 tahun yaitu
+              sampai tahun 1998.
+            </p>
+            <br />
+            <p class="text-justify">
+              Pada tahun 1998 diadakan PILKADES dan yang terpilih yaitu
+              <strong>Sugiono bin Surat</strong> yang berasal dari PNS guru SD
+              Kalikayen. Beliau menjabat sampai tahun 2006. Setelah tidak
+              menjabat sebagai Kepala Desa beliau kembali menjadi PNS Guru SD.
+            </p>
+            <br />
+            <p class="text-justify">
+              Pada tahun 2006 diadakan PILKADES dan yang terpilih adalah
+              <strong>Sambudi bin Supardjo</strong> dari Dusun Watukebo yang
+              sebelumnya menjadi Sekretaris Desa Kalikayen dari tahun 1976.
+              Beliau menjabat sebagai Kades selama 1 periode yaitu 6 tahun
+              sampai tahun 2012.
+            </p>
+            <br />
+            <p class="text-justify">
+              Pada akhir tahun 2012 diadakan Pilkades dan yang terpilih menjadi
+              Kepala Desa Kalikayen yaitu <strong>Busro bin Saput</strong> yang
+              berasal dari Dusun Lingkongsari yang memimpin Desa Kalikayen.
+              Menjabat selama satu periode sampai dengan Maret 2019.
+            </p>
+            <br />
+            <p class="text-justify">
+              Pilkades pada Desember 2018 menjadikan
+              <strong>Sugiono bin Surat</strong> yang kembali terpilih secara
+              langsung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-300 text-stone-800 py-8">
+      <div class="container mx-auto px-4 md:px-6">
+        <!-- Bagian Utama Footer -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+        >
+          <!-- Alamat -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Alamat Desa</h5>
+            <p class="mb-1">Jl. Desa Kalikayen No. 10</p>
+            <p class="mb-1">Kecamatan Ungaran</p>
+            <p class="mb-1">Kabupaten Semarang</p>
+            <p class="mb-1">Jawa Tengah 50511</p>
+          </div>
+
+          <!-- Kontak -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Kontak</h5>
+            <p class="mb-2">📞 (024) 1234-5678</p>
+            <p class="mb-2">📱 0822-5678-9012</p>
+            <p class="mb-2">📧 info@kalikayen.desa.id</p>
+          </div>
+
+          <!-- Jam Kerja -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Jam Kerja</h5>
+            <p class="mb-1">Senin - Kamis: 08.00 - 15.00</p>
+            <p class="mb-1">Jumat: 08.00 - 11.30</p>
+            <p class="mb-1">Sabtu - Minggu: Tutup</p>
+          </div>
+
+          <!-- Tautan Cepat -->
+          <div class="footer-section">
+            <h5 class="font-bold text-lg mb-3">Tautan Cepat</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="berita.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a
+                  href="agenda.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Agenda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="galeri.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Galeri</a
+                >
+              </li>
+              <li>
+                <a
+                  href="kontak.html"
+                  class="hover:text-stone-600 transition-colors duration-200"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="mt-8 border-t border-stone-400 pt-6">
+          <div class="flex justify-center space-x-8">
+            <a
+              href="#"
+              class="hover:text-stone-600 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="hover:text-stone-600 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="hover:text-stone-600 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.331.001.369-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.614z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hak Cipta -->
+        <div class="mt-6 text-center text-sm">
+          <p class="mb-1">
+            © 2024 Desa Kalikayen. Seluruh hak cipta dilindungi.
+          </p>
+          <p>Dikembangkan oleh Tim IT Desa Kalikayen</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      AOS.init();
+
+      // Ambil semua link di navigasi
+      const navLinks = document.querySelectorAll("nav ul li a");
+
+      // Loop melalui setiap link
+      navLinks.forEach((link) => {
+        // Cek apakah href link sama dengan URL halaman saat ini
+        if (link.href === window.location.href) {
+          link.classList.add("active"); // Tambahkan class active
+        }
+      });
+
+      document
+        .getElementById("menu-button")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("mobile-profil")
+        .addEventListener("click", function () {
+          document
+            .getElementById("mobile-profil-menu")
+            .classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("mobile-informasi")
+        .addEventListener("click", function () {
+          document
+            .getElementById("mobile-informasi-menu")
+            .classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("mobile-pelayanan")
+        .addEventListener("click", function () {
+          document
+            .getElementById("mobile-pelayanan-menu")
+            .classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
